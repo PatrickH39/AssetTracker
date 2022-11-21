@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="kordamp.ikonli.javafx" level="project" />
+    <orderEntry type="library" name="kordamp.ikonli.materialdesign.pack" level="project" />
   </component>
 </module>

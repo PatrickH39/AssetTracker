@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+   <children>
+      <HBox alignment="CENTER" prefHeight="178.0" prefWidth="900.0" style="-fx-background-color: #2D75E8;">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="162.0" prefWidth="627.0">
+               <children>
+                  <Button fx:id="btnLogo" focusTraversable="false" mnemonicParsing="false" onAction="#showAbout" prefHeight="50.0" prefWidth="64.0" style="-fx-background-color: #FFF;" styleClass="dash-logo">
+                     <HBox.margin>
+                        <Insets right="25.0" />
+                     </HBox.margin>
+                  </Button>
+                  <GridPane alignment="CENTER_LEFT" prefHeight="102.0" prefWidth="270.0">
+                     <columnConstraints>
+                        <ColumnConstraints />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="356.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="106.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="91.0" minHeight="9.0" prefHeight="63.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label alignment="BOTTOM_LEFT" prefHeight="666.0" prefWidth="666.0" text="LabOPS" textFill="WHITE" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="Roboto Condensed" size="48.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" prefHeight="666.0" prefWidth="666.0" text="an asset management system" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Roboto Condensed" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </HBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="162.0" prefWidth="501.0">
+               <children>
+                  <GridPane alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="244.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints maxHeight="33.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="30.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label fx:id="lblCurrentDate" alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="400.0" textAlignment="RIGHT" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCurrentTime" alignment="CENTER_RIGHT" prefHeight="24.0" prefWidth="400.0" textAlignment="RIGHT" textFill="WHITE" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="Roboto" size="20.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </children>
+               <padding>
+                  <Insets right="56.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="514.0" prefWidth="900.0" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+         <children>
+            <GridPane prefHeight="500.0" prefWidth="1000.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="btnDashboard" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Dashboard" textAlignment="CENTER">
+                     <graphic>
+                        <FontIcon iconColor="#2d75e8" iconLiteral="mdi-home" iconSize="64" text="" textAlignment="CENTER" wrappingWidth="78.0" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnEditor" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Editor" textAlignment="CENTER" GridPane.rowIndex="1">
+                     <graphic>
+                        <FontIcon iconColor="#2d75e8" iconLiteral="mdi-sitemap" iconSize="64" textAlignment="CENTER" wrappingWidth="78.0" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnReserve" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Reserve" textAlignment="CENTER" GridPane.columnIndex="1">
+                     <graphic>
+                        <FontIcon iconColor="#2d75e8" iconLiteral="mdi-swap-horizontal" iconSize="64" textAlignment="CENTER" wrappingWidth="78.0" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSaveAll" contentDisplay="TOP" mnemonicParsing="false" onAction="#saveAll" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Save All" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <graphic>
+                        <FontIcon iconColor="#2d75e8" iconLiteral="mdi-content-save" iconSize="64" textAlignment="CENTER" wrappingWidth="78.0" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnHistory" contentDisplay="TOP" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="History" textAlignment="CENTER" GridPane.columnIndex="2">
+                     <graphic>
+                        <FontIcon iconColor="#2d75e8" iconLiteral="mdi-history" iconSize="64" textAlignment="CENTER" wrappingWidth="78.0" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnLoadData" contentDisplay="TOP" mnemonicParsing="false" onAction="#loadFile" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Load Data" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <graphic>
+                        <FontIcon iconColor="#2d75e8" iconLiteral="mdi-folder-move" iconSize="64" textAlignment="CENTER" wrappingWidth="78.0" />
+                     </graphic>
+                     <GridPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </GridPane.margin>
+                     <font>
+                        <Font name="Roboto" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="100.0" right="100.0" top="50.0" />
+         </padding>
+      </HBox>
+   </children>
+</VBox>
