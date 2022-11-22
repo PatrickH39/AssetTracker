@@ -18,12 +18,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Controller implements Initializable {
 
@@ -33,10 +29,10 @@ public class Controller implements Initializable {
     public Label lblCurrentDate;
 
     // Launchpad Buttons
-    public Button btnDashboard;
+    public Button btnOverview;
     public Button btnReserve;
     public Button btnHistory;
-    public Button btnEditor;
+    public Button btnAdmin;
     public Button btnSaveAll;
     public Button btnLoadData;
 
@@ -74,14 +70,14 @@ public class Controller implements Initializable {
      */
     @FXML
     private void handleButtonClicks(javafx.event.ActionEvent mouseEvent){
-        if (mouseEvent.getSource() == btnDashboard){
-            loadStage("/fxml/Dashboard.fxml", "Dashboard", "/dashboard.png");
+        if (mouseEvent.getSource() == btnOverview){
+            loadStage("/fxml/Overview.fxml", "Overview", "/overview.png");
         } else if(mouseEvent.getSource() == btnReserve){
             loadStage("/fxml/Reserve.fxml", "Reserve", "/reserve.png");
         } else if(mouseEvent.getSource() == btnHistory){
             loadStage("/fxml/History.fxml", "History", "/history.png");
-        } else if (mouseEvent.getSource() == btnEditor){
-            loadStage("/fxml/Editor.fxml", "Editor", "/editor.png");
+        } else if (mouseEvent.getSource() == btnAdmin){
+            loadStage("/fxml/Admin.fxml", "Admin", "/admin.png");
         }
     }
 
