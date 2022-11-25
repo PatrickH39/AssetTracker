@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -69,7 +70,7 @@ public class Controller implements Initializable {
      * @param mouseEvent
      */
     @FXML
-    private void handleButtonClicks(javafx.event.ActionEvent mouseEvent){
+    private void handleButtonClicks(javafx.event.ActionEvent mouseEvent) {
         if (mouseEvent.getSource() == btnOverview){
             loadStage("/fxml/Overview.fxml", "Overview", "/overview.png");
         } else if(mouseEvent.getSource() == btnReserve){
@@ -91,12 +92,13 @@ public class Controller implements Initializable {
     private void loadStage(String fxml, String title, String iconpath) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.getIcons().add(new Image(Controller.class.getResourceAsStream(iconpath))); // Adds an icon to the window
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle(title);
+            root.getStylesheets().add("/style.css");
 
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root, 900, 660));
+            stage.getIcons().add(new Image(Controller.class.getResourceAsStream(iconpath))); // Adds an icon to the window
+            stage.setTitle(title);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
