@@ -120,8 +120,10 @@ public class Controller implements Initializable {
     }
 
     public void saveAll(ActionEvent actionEvent) {
+        data.IOHandler.writeOut();
     }
 
     public void loadFile(ActionEvent actionEvent) {
+        data.IOHandler.readIn();
     }
 }

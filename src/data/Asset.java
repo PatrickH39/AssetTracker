@@ -1,6 +1,8 @@
+package data;
+
 public class Asset {
 
-    // Asset Attributes
+    // data.Asset Attributes
     private String type;
     private String volume;
     private String size;
@@ -17,6 +19,10 @@ public class Asset {
         this.borrower = borrower;
         this.dateTaken = dateTaken;
         this.notes = notes;
+    }
+
+    String toTSV() {
+        return this.type + "\t" + this.volume + "\t" + this.size + "\t" + this.location + "\t" + this.borrower + "\t" + this.dateTaken + "\t" + this.notes;
     }
 
     public String getType() {
@@ -46,4 +52,6 @@ public class Asset {
     public String getNotes() {
         return notes;
     }
+
+
 }

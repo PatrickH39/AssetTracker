@@ -20,6 +20,7 @@ public class AdminController implements Initializable {
     public void userManager(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserManager.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        root.getStylesheets().add("/style.css");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -28,6 +29,7 @@ public class AdminController implements Initializable {
     public void itemManager(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/ItemManager.fxml"));
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        root.getStylesheets().add("/style.css");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
