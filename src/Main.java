@@ -16,7 +16,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("fxml/Home.fxml")); // Loads the FXML file
-        root.getStylesheets().add("/style.css");
+        root.getStylesheets().add("/style.css"); // Loads global CSS file
 
         primaryStage.getIcons().add(new Image(Main.class.getResourceAsStream("/icon.png"))); // Adds an icon to the window
         primaryStage.setTitle("LabOPS"); // Adds the title to the window

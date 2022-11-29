@@ -9,6 +9,16 @@ public class Asset {
     private String location;
     private String notes;
 
+    /**
+     * Constructor for Asset
+     *
+     * @param type
+     * @param volume
+     * @param size
+     * @param location
+     * @param notes
+     */
+
     public Asset(String type, String volume, String size, String location, String notes) {
         this.type = type;
         this.volume = volume;
@@ -17,11 +27,16 @@ public class Asset {
         this.notes = notes;
     }
 
+    /**
+     * Changes string to TSV (Tab-Separated Values)
+     * @return
+     */
     String toTSV() {
         return this.type + "\t" + this.volume + "\t" + this.size + "\t" + this.location + "\t" + this.notes;
     }
 
     /**
+     * Getters
      *
      * @return
      */

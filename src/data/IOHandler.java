@@ -88,26 +88,65 @@ public class IOHandler {
         }
     }
 
+    /**
+     * Requires: User
+     * Modifies: allUsers
+     * Effects: Adds User to allUsers
+     *
+     * @param user
+     */
     public static void addItemAllUsers(User user) {
         allUsers.add(user);
     }
 
+    /**
+     * Requires: Asset
+     * Modifies: allAssets
+     * Effects: Adds Asset to allAssets
+     * @param asset
+     */
     public static void addItemAllAssets(Asset asset) {
         allAssets.add(asset);
     }
 
+    /**
+     * Requires: User
+     * Modifies: allUsers
+     * Effects: Removes a User from allUsers
+     * @param user
+     */
     public static void removeItemAllUsers(User user) {
         allUsers.remove(user);
     }
 
+    /**
+     * Requires: Asset
+     * Modifies: allAssets
+     * Effects: Removes an Asset from allAsset
+     * @param asset
+     */
     public static void removeItemAllAssets(Asset asset) {
         allAssets.remove(asset);
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: Nothing
+     * Effects: Returns allUsers (ArrayList)
+     *
+     * @return
+     */
     public static ArrayList<User> getAllUsers() {
         return allUsers;
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: Nothing
+     * Effects: Returns allAssets (ArrayList)
+     * 
+     * @return
+     */
     public static ArrayList<Asset> getAllAssets() {
         return allAssets;
     }
