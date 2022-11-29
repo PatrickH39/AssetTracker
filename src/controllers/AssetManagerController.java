@@ -45,6 +45,7 @@ public class AssetManagerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         choiceType.setItems(typeList);
         choiceLocation.setItems(locationList);
+        updateAssetList();
     }
 
 

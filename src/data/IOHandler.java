@@ -12,6 +12,12 @@ public class IOHandler {
 
     static final FileChooser fc =new FileChooser();
 
+    /**
+     * Requires:
+     * Modifies:
+     * Effects:
+     *
+     */
     public static void readIn() {
         allUsers.clear();
         allAssets.clear();
@@ -33,31 +39,36 @@ public class IOHandler {
 
             String line;
 
-            while ((line = bRead.readLine()) != "\n") {
+            while (!(line = bRead.readLine()).equals("--user")) {
                 String[] data1 = line.split("\t");
-
-                allUsers.add(new User(data1[0], data1[1], data1[2], data1[3]));
+                if (data1.length == 4)
+                    allUsers.add(new User(data1[0], data1[1], data1[2], data1[3]));
 
                 System.out.println(Arrays.toString(data1));
-
-                bRead.mark(1);
             }
 
-            bRead.reset();
-            while ((line = bRead.readLine()) != null) {
-                String[] data2 = line.split("\r");
-                bRead.reset();
-                allAssets.add(new Asset(data2[0], data2[1], data2[2], data2[3], data2[4]));
+            while (!(line = bRead.readLine()).equals("--asset")) {
+                String[] data2 = line.split("\t");
+                System.out.println(data2.length);
+                if (data2.length == 5)
+                    allAssets.add(new Asset(data2[0], data2[1], data2[2], data2[3], data2[4]));
 
                 System.out.println(Arrays.toString(data2));
 
             }
+            bRead.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * Requires:
+     * Modifies:
+     * Effects:
+     *
+     */
     public static void writeOut() {
         try {
             fc.setTitle("Save a file");
@@ -77,10 +88,10 @@ public class IOHandler {
             BufferedWriter bWrite = new BufferedWriter(fWrite);
 
             for (User f : allUsers) bWrite.write(f.toTSV() + "\n");
-            bWrite.write("\n-user");
+            bWrite.write("--user\n\n");
 
             for (Asset f : allAssets) bWrite.write(f.toTSV() + "\r");
-            bWrite.write("\n-asset");
+            bWrite.write("--asset");
 
             bWrite.close();
         } catch (IOException e) {
