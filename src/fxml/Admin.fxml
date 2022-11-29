@@ -61,7 +61,7 @@
                         <Font name="Roboto" size="28.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#itemManager" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Item Manager" textAlignment="CENTER" GridPane.columnIndex="1">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#assetManager" prefHeight="500.0" prefWidth="500.0" style="-fx-background-radius: 15px;" text="Asset Manager" textAlignment="CENTER" GridPane.columnIndex="1">
                      <graphic>
                         <FontIcon iconColor="#2d75e8" iconLiteral="mdi-apps" iconSize="128" textAlignment="CENTER" wrappingWidth="128.0" />
                      </graphic>

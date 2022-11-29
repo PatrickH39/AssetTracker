@@ -7,22 +7,27 @@ public class Asset {
     private String volume;
     private String size;
     private String location;
-    private String borrower;
-    private String dateTaken;
     private String notes;
 
-    public Asset(String type, String volume, String size, String location, String borrower, String dateTaken, String notes) {
+    public Asset(String type, String volume, String size, String location, String notes) {
         this.type = type;
         this.volume = volume;
         this.size = size;
         this.location = location;
-        this.borrower = borrower;
-        this.dateTaken = dateTaken;
         this.notes = notes;
     }
 
     String toTSV() {
-        return this.type + "\t" + this.volume + "\t" + this.size + "\t" + this.location + "\t" + this.borrower + "\t" + this.dateTaken + "\t" + this.notes;
+        return this.type + "\t" + this.volume + "\t" + this.size + "\t" + this.location + "\t" + this.notes;
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public String toString(){
+        return location + ": " + type;
     }
 
     public String getType() {
@@ -41,17 +46,8 @@ public class Asset {
         return location;
     }
 
-    public String getBorrower() {
-        return borrower;
-    }
-
-    public String getDateTaken() {
-        return dateTaken;
-    }
-
     public String getNotes() {
         return notes;
     }
-
 
 }

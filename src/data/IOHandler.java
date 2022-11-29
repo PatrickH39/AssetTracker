@@ -4,6 +4,7 @@ import javafx.stage.FileChooser;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class IOHandler {
     private static final ArrayList<User> allUsers = new ArrayList<>();
@@ -11,18 +12,18 @@ public class IOHandler {
 
     static final FileChooser fc =new FileChooser();
 
-    public static void readIn(){
+    public static void readIn() {
         allUsers.clear();
         allAssets.clear();
 
         try {
             fc.setTitle("Open a file");
-            File openFile = fc.showOpenDialog(null);
 
             // Limits to text files only
             fc.getExtensionFilters().clear();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
 
+            File openFile = fc.showOpenDialog(null);
 
             // Saves path to String path
             String path = openFile.getAbsolutePath();
@@ -32,33 +33,42 @@ public class IOHandler {
 
             String line;
 
-            while ((line = bRead.readLine()) != "-user") {
-                String[] data = line.split("\t");
+            while ((line = bRead.readLine()) != "\n") {
+                String[] data1 = line.split("\t");
 
-                allUsers.add(new User(data[0], data[1], data [2], data [3]));
+                allUsers.add(new User(data1[0], data1[1], data1[2], data1[3]));
 
-                line.equals(null);
+                System.out.println(Arrays.toString(data1));
+
+                bRead.mark(1);
             }
 
-            while ((line = bRead.readLine()) != "-asset") {
-                String[] data = line.split("\t");
+            bRead.reset();
+            while ((line = bRead.readLine()) != null) {
+                String[] data2 = line.split("\r");
+                bRead.reset();
+                allAssets.add(new Asset(data2[0], data2[1], data2[2], data2[3], data2[4]));
 
-                allAssets.add(new Asset(data[0], data[1], data[2], data[3],data[4],data[5],data[6]));
+                System.out.println(Arrays.toString(data2));
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static void writeOut() {
         try {
-            // Opens a FileChooser window
             fc.setTitle("Save a file");
-            File saveFile = fc.showSaveDialog(null);
 
             // Limits to text files only
             fc.getExtensionFilters().clear();
             fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+
+            // Opens a FileChooser window
+            File saveFile = fc.showSaveDialog(null);
+
 
             // Saves path to String path
             String path = saveFile.getAbsolutePath();
@@ -67,10 +77,10 @@ public class IOHandler {
             BufferedWriter bWrite = new BufferedWriter(fWrite);
 
             for (User f : allUsers) bWrite.write(f.toTSV() + "\n");
-            bWrite.write("-user");
+            bWrite.write("\n-user");
 
-            for (Asset f : allAssets) bWrite.write(f.toTSV() + "\n");
-            bWrite.write("-asset");
+            for (Asset f : allAssets) bWrite.write(f.toTSV() + "\r");
+            bWrite.write("\n-asset");
 
             bWrite.close();
         } catch (IOException e) {

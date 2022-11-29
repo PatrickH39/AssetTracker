@@ -97,6 +97,7 @@ public class Controller implements Initializable {
             Stage stage = new Stage();
             stage.setScene(new Scene(root, 900, 660));
             stage.getIcons().add(new Image(Controller.class.getResourceAsStream(iconpath))); // Adds an icon to the window
+            stage.setResizable(false); // Disallow resizing of window
             stage.setTitle(title);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.show();

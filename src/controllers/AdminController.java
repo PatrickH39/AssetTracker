@@ -21,15 +21,17 @@ public class AdminController implements Initializable {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserManager.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         root.getStylesheets().add("/style.css");
+        stage.setResizable(false); // Disallow resizing of window
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    public void itemManager(ActionEvent actionEvent) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/ItemManager.fxml"));
+    public void assetManager(ActionEvent actionEvent) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/AssetManager.fxml"));
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         root.getStylesheets().add("/style.css");
+        stage.setResizable(false); // Disallow resizing of window
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

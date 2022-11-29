@@ -104,6 +104,11 @@ public class UserManagerController implements Initializable {
         lblLastName.setText(selected.getLastName());
         lblNickname.setText(selected.getNickname());
         lblHomeroom.setText(selected.getHomeroom());
+    }
 
+    public void deleteUser(ActionEvent actionEvent) {
+        User selected = listUsers.getSelectionModel().getSelectedItem();
+        IOHandler.removeItemAllUsers(selected);
+        updateUserList();
     }
 }
