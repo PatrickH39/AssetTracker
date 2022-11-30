@@ -2,6 +2,7 @@ package controllers;
 
 import data.IOHandler;
 import data.User;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,12 +22,7 @@ import java.util.ResourceBundle;
 
 public class UserManagerController implements Initializable {
 
-    public Label lblHomeroom;
-    public Label lblNickname;
-    public GridPane gridUserInfo;
-    public Label lblFirstName;
-    public Label lblLastName;
-
+    // Add Information
     ObservableList<String> classroomList = FXCollections.observableArrayList("212", "214", "216", "224A", "316", "320");
     public TextField fieldNickname;
     public TextField fieldFirstName;
@@ -34,12 +30,27 @@ public class UserManagerController implements Initializable {
     public ChoiceBox choiceClassroom;
     public ListView<data.User> listUsers = new ListView<>();
 
+    // Display Information
+    public Label lblHomeroom;
+    public Label lblNickname;
+    public GridPane gridUserInfo;
+    public Label lblFirstName;
+    public Label lblLastName;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateUserList();
         choiceClassroom.setItems(classroomList);
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: root, stage, scene
+     * Effects: Returns to previous GUI page with same window, which is the administration page
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void goBack(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Admin.fxml"));
         root.getStylesheets().add("/style.css");
@@ -49,6 +60,13 @@ public class UserManagerController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Requires: fieldNickname, fieldFirstName, fieldLastName, choiceClassroom
+     * Modifies: alert, fieldNickname, fieldFirstName, fieldLastName, fieldClassroom
+     * Effects: Adds a new User to the user list then updates GUI.
+     *
+     * @param actionEvent
+     */
     public void addUser(ActionEvent actionEvent) {
         if (fieldNickname.getText().isEmpty() || fieldFirstName.getText().isEmpty() || fieldLastName.getText().isEmpty() || choiceClassroom.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -77,6 +95,11 @@ public class UserManagerController implements Initializable {
         updateUserList();
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: IOHandler.listUsers
+     * Effects: Propagates ListView with Users
+     */
     private void updateUserList() {
         listUsers.getItems().clear();
 
@@ -90,6 +113,13 @@ public class UserManagerController implements Initializable {
         listUsers.getSelectionModel().select(0);
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: lblFirstName, lblLastName, lblNickname, lblHomeroom, gridUserInfo
+     * Effects: Lists available information about a user
+     *
+     * @param mouseEvent
+     */
     public void showUsers(MouseEvent mouseEvent) {
         if (listUsers.getItems().isEmpty()){
             gridUserInfo.setVisible(false);
@@ -106,6 +136,11 @@ public class UserManagerController implements Initializable {
         lblHomeroom.setText(selected.getHomeroom());
     }
 
+    /**
+     * Deletes a user
+     *
+     * @param actionEvent
+     */
     public void deleteUser(ActionEvent actionEvent) {
         User selected = listUsers.getSelectionModel().getSelectedItem();
         IOHandler.removeItemAllUsers(selected);

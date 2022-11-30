@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -43,6 +42,11 @@ public class Controller implements Initializable {
     }
 
 
+    /**
+     * Requires: Nothing
+     * Modifies: lblCurrentDate, lblCurrentTime
+     * Effects: Adds the time/date to the top right of the homepage
+     */
     private void timeNow(){
         Thread thread = new Thread(() -> {
             SimpleDateFormat time = new SimpleDateFormat("hh:mm aa");
@@ -62,10 +66,11 @@ public class Controller implements Initializable {
         thread.start();
 
     }
+
     /**
-     * Requires:
-     * Modifies:
-     * Effects:
+     * Requires: btnOverview, btnReserve, btnHistory, btnAdmin
+     * Modifies: Nothing
+     * Effects: Loads the stage corresponding to the button pressed w/ the fxml path, title, and icon path
      *
      * @param mouseEvent
      */
@@ -83,9 +88,9 @@ public class Controller implements Initializable {
     }
 
     /**
-     * Requires:
-     * Modifies:
-     * Effects:
+     * Requires: String fxml, String title, String iconpath
+     * Modifies: root, stage
+     * Effects: Opens a new window with parameters
      *
      * @param fxml
      */
@@ -120,10 +125,20 @@ public class Controller implements Initializable {
         alert.showAndWait();
     }
 
+    /**
+     * Saves the assets and users to a chosen file
+     *
+     * @param actionEvent
+     */
     public void saveAll(ActionEvent actionEvent) {
         data.IOHandler.writeOut();
     }
 
+    /**
+     * Loads the assets and users from a chosen file
+     *
+     * @param actionEvent
+     */
     public void loadFile(ActionEvent actionEvent) {
         data.IOHandler.readIn();
     }

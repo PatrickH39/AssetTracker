@@ -1,8 +1,8 @@
 package controllers;
 
-import data.Asset;
 import data.IOHandler;
-import data.User;
+import data.Asset;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,6 +49,14 @@ public class AssetManagerController implements Initializable {
     }
 
 
+    /**
+     * Requires: Nothing
+     * Modifies: root, stage, scene
+     * Effects: Returns to previous GUI page with same window, which is the administration page
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void goBack(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Admin.fxml"));
         root.getStylesheets().add("/style.css");
@@ -58,6 +66,13 @@ public class AssetManagerController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: lblType, lblVolume, lblSize, lblLocation, lblNotes, gridAssetInfo
+     * Effects: Lists available information about an asset
+     *
+     * @param mouseEvent
+     */
     public void showAssets(MouseEvent mouseEvent) {
         if (listAssets.getItems().isEmpty()){
             gridAssetInfo.setVisible(false);
@@ -75,6 +90,13 @@ public class AssetManagerController implements Initializable {
         lblNotes.setText(selected.getNotes());
     }
 
+    /**
+     * Requires: choiceType, fieldVolume, fieldSize, choiceLocation, fieldNotes
+     * Modifies: alert, choiceType, fieldVolume, fieldSize, choiceLocation, fieldNotes
+     * Effects: Adds a new Asset to the asset list then updates GUI. Volume, size, and notes are optional
+     *
+     * @param actionEvent
+     */
     public void addAsset(ActionEvent actionEvent) {
         if (choiceType.getSelectionModel().isEmpty() || choiceLocation.getSelectionModel().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -105,6 +127,11 @@ public class AssetManagerController implements Initializable {
         updateAssetList();
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: IOHandler.listAssets
+     * Effects: Propagates ListView with Assets
+     */
     private void updateAssetList() {
         listAssets.getItems().clear();
 
@@ -118,6 +145,11 @@ public class AssetManagerController implements Initializable {
         listAssets.getSelectionModel().select(0);
     }
 
+    /**
+     * Deletes an asset
+     *
+     * @param actionEvent
+     */
     public void deleteAsset(ActionEvent actionEvent) {
         Asset selected = listAssets.getSelectionModel().getSelectedItem();
         IOHandler.removeItemAllAssets(selected);

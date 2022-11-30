@@ -17,6 +17,14 @@ public class AdminController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: root, stage, scene
+     * Effects: Replaces current window's GUI with userManager
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void userManager(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/UserManager.fxml"));
         Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
@@ -27,6 +35,14 @@ public class AdminController implements Initializable {
         stage.show();
     }
 
+    /**
+     * Requires: Nothing
+     * Modifies: root, stage, scene
+     * Effects: Replaces current window's GUI with assetManager
+     *
+     * @param actionEvent
+     * @throws IOException
+     */
     public void assetManager(ActionEvent actionEvent) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/AssetManager.fxml"));
         Stage stage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();

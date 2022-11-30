@@ -13,9 +13,11 @@ public class IOHandler {
     static final FileChooser fc =new FileChooser();
 
     /**
-     * Requires:
-     * Modifies:
-     * Effects:
+     * Reads Data
+     *
+     * Requires: Nothing
+     * Modifies: allUsers, allAssets
+     * Effects: Adds all users and assets from selected file to their specified classes
      *
      */
     public static void readIn() {
@@ -64,9 +66,11 @@ public class IOHandler {
     }
 
     /**
-     * Requires:
-     * Modifies:
-     * Effects:
+     * Writes data
+     *
+     * Requires: Nothing
+     * Modifies: Nothing
+     * Effects: Writes user list then asset list to selected file
      *
      */
     public static void writeOut() {
@@ -104,7 +108,7 @@ public class IOHandler {
      * Modifies: allUsers
      * Effects: Adds User to allUsers
      *
-     * @param user
+     * @param user User to add
      */
     public static void addItemAllUsers(User user) {
         allUsers.add(user);
@@ -114,7 +118,8 @@ public class IOHandler {
      * Requires: Asset
      * Modifies: allAssets
      * Effects: Adds Asset to allAssets
-     * @param asset
+     *
+     * @param asset Asset to add
      */
     public static void addItemAllAssets(Asset asset) {
         allAssets.add(asset);
@@ -124,7 +129,8 @@ public class IOHandler {
      * Requires: User
      * Modifies: allUsers
      * Effects: Removes a User from allUsers
-     * @param user
+     *
+     * @param user User to remove
      */
     public static void removeItemAllUsers(User user) {
         allUsers.remove(user);
@@ -134,7 +140,8 @@ public class IOHandler {
      * Requires: Asset
      * Modifies: allAssets
      * Effects: Removes an Asset from allAsset
-     * @param asset
+     *
+     * @param asset Asset to remove
      */
     public static void removeItemAllAssets(Asset asset) {
         allAssets.remove(asset);
@@ -145,7 +152,7 @@ public class IOHandler {
      * Modifies: Nothing
      * Effects: Returns allUsers (ArrayList)
      *
-     * @return
+     * @return allUsers
      */
     public static ArrayList<User> getAllUsers() {
         return allUsers;
@@ -156,9 +163,23 @@ public class IOHandler {
      * Modifies: Nothing
      * Effects: Returns allAssets (ArrayList)
      * 
-     * @return
+     * @return allAssets
      */
     public static ArrayList<Asset> getAllAssets() {
         return allAssets;
+    }
+
+    /**
+     * Clear all assets
+     */
+    public static void clearAssets() {
+        allAssets.clear();
+    }
+
+    /**
+     * Clear all users
+     */
+    public static void clearUsers() {
+        allUsers.clear();
     }
 }
