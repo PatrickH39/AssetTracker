@@ -1,0 +1,7 @@
+Ms. Fulton	Nancy	Fulton	212
+Ms. Leong	Susan	Leong	214
+Mr. Plattner	Alexander	Plattner	216
+Mr. Borges	Danny	Borges	316
+--user
+
+Beaker	250	N/A	2	N/ABeaker	500	Large	2	N/ACompound Light Microscope	N/A	N/A	3	15 availableGas Collection Tube	20	N/A	4	500°C Max StressGraduated Cylinder	25	N/A	5	remind to read meniscusHole Stopper	N/A	N/A	5	ONLY for coll. tubesPipette	3	N/A	5	N/ARing Stand	N/A	N/A	6	set of 15Rubber Tubes	N/A	N/A	12	N/ATest Tubes	N/A	Large	13	N/ATest Tubes	N/A	Medium	14	N/ATest Tubes	N/A	Small	14	N/A--asset
